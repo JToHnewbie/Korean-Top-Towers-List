@@ -8,7 +8,7 @@ window.KTTL_I18N = {
       misc: "메인 리스트에 들어갈 정도의 퀄리티가 아니거나, 국내 유저들을 타겟팅해 제작된 타워들의 순위입니다.",
       packs: "여러 타워를 묶은 타워 팩의 전체 난이도 순위입니다.",
       unverified: "아직 검증(첫 클리어)이 되지 않은 타워들의 예상 난이도 순위입니다.",
-      pending: "제출되어 스태프가 배치 위치를 검토 중인 타워들입니다. 순서는 제출 순입니다."
+      pending: "제출되어 스태프가 배치 위치를 검토 중인 타워들입니다."
     },
     search: "타워·플레이어 검색",
     filter: "이 리스트에서 찾기",
@@ -90,7 +90,7 @@ window.KTTL_I18N = {
       misc: "This is a ranking of towers that either do not meet the quality standards for the main list or were created for a Korean.",
       packs: "Overall difficulty ranking of tower packs that bundle multiple towers.",
       unverified: "Estimated ranking of towers that have not been verified (beaten) yet.",
-      pending: "Submitted towers awaiting placement review by staff. Ordered by submission."
+      pending: "Submitted towers awaiting placement review by staff."
     },
     search: "Search towers & players",
     filter: "Filter this list",
