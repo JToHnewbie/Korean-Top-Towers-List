@@ -6,7 +6,7 @@ window.KTTL_CONFIG = {
   /* Google 스프레드시트 ID
      https://docs.google.com/spreadsheets/d/1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4/edit
      비워두면 data/ 폴더의 샘플 CSV를 사용합니다. */
-  SHEET_ID: "",
+  SHEET_ID: "1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4",
 
   /* 시트 탭 이름 (스프레드시트 하단 탭 이름과 정확히 일치해야 함) */
   TABS: {
