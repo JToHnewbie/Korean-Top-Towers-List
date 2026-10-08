@@ -15,35 +15,29 @@
 
   /* JToH 계열 난이도 색 */
   const DIFF = {
-    "Baseline, Insane": "oklch(0.5 0.24 265)", "Bottom, Insane": "oklch(0.5 0.24 265)", "Bottom-Low, Insane": "oklch(0.5 0.24 265)", "Low, Insane": "oklch(0.5 0.24 265)",
-    "Low-Mid, Insane": "oklch(0.5 0.24 265)", "Mid, Insane": "oklch(0.5 0.24 265)", "Mid-High, Insane": "oklch(0.5 0.24 265)", "High, Insane": "oklch(0.5 0.24 265)",
-    "High-Peak, Insane": "oklch(0.5 0.24 265)", "Peak, Insane": "oklch(0.5 0.24 265)",
-    "Baseline, Extreme": "oklch(0.75 0.15 215)", "Bottom, Extreme": "oklch(0.75 0.15 215)", "Bottom-Low, Extreme": "oklch(0.75 0.15 215)", "Low, Extreme": "oklch(0.75 0.15 215)",
-    "Low-Mid, Extreme": "oklch(0.75 0.15 215)", "Mid, Extreme": "oklch(0.75 0.15 215)", "Mid-High, Extreme": "oklch(0.75 0.15 215)", "High, Extreme": "oklch(0.75 0.15 215)",
-    "High-Peak, Extreme": "oklch(0.75 0.15 215)", "Peak, Extreme": "oklch(0.75 0.15 215)",
-    "Baseline, Terrifying": "oklch(0.85 0.12 200)", "Bottom, Terrifying": "oklch(0.85 0.12 200)", "Bottom-Low, Terrifying": "oklch(0.85 0.12 200)", "Low, Terrifying": "oklch(0.85 0.12 200)",
-    "Low-Mid, Terrifying": "oklch(0.85 0.12 200)", "Mid, Terrifying": "oklch(0.85 0.12 200)", "Mid-High, Terrifying": "oklch(0.85 0.12 200)", "High, Terrifying": "oklch(0.85 0.12 200)",
-    "High-Peak, Terrifying": "oklch(0.85 0.12 200)", "Peak, Terrifying": "oklch(0.85 0.12 200)",
-    "Baseline, Catastrophic": "oklch(0.97 0 0)", "Bottom, Catastrophic": "oklch(0.97 0 0)", "Bottom-Low, Catastrophic": "oklch(0.97 0 0)", "Low, Catastrophic": "oklch(0.97 0 0)", 
-    "Low-Mid, Catastrophic": "oklch(0.97 0 0)", "Mid, Catastrophic": "oklch(0.97 0 0)", "Mid-High, Catastrophic": "oklch(0.97 0 0)", "High, Catastrophic": "oklch(0.97 0 0)", 
-    "High-Peak, Catastrophic": "oklch(0.97 0 0)", "Peak, Catastrophic": "oklch(0.97 0 0)",
-    "Baseline, Horrific": "oklch(0.6 0.2 300)", "Bottom, Horrific": "oklch(0.6 0.2 300)", "Bottom-Low, Horrific": "oklch(0.6 0.2 300)", "Low, Horrific": "oklch(0.6 0.2 300)", 
-    "Low-Mid, Horrific": "oklch(0.6 0.2 300)", "Mid, Horrific": "oklch(0.6 0.2 300)", "Mid-High, Horrific": "oklch(0.6 0.2 300)", "High, Horrific": "oklch(0.6 0.2 300)", 
-    "High-Peak, Horrific": "oklch(0.6 0.2 300)", "Peak, Horrific": "oklch(0.6 0.2 300)",
-    "Baseline, Unreal": "oklch(0.35 0.15 300)", "Bottom, Unreal": "oklch(0.35 0.15 300)", "Bottom-Low, Unreal": "oklch(0.35 0.15 300)", "Low, Unreal": "oklch(0.35 0.15 300)", 
-    "Low-Mid, Unreal": "oklch(0.35 0.15 300)", "Mid, Unreal": "oklch(0.35 0.15 300)", "Mid-High, Unreal": "oklch(0.35 0.15 300)", "High, Unreal": "oklch(0.35 0.15 300)", 
-    "High-Peak, Unreal": "oklch(0.35 0.15 300)", "Peak, Unreal": "oklch(0.35 0.15 300)",
-    "Baseline, Nil": "oklch(0.15 0 0)", "Bottom, Nil": "oklch(0.15 0 0)", "Bottom-Low, Nil": "oklch(0.15 0 0)", "Low, Nil": "oklch(0.15 0 0)", 
-    "Low-Mid, Nil": "oklch(0.15 0 0)", "Mid, Nil": "oklch(0.15 0 0)", "Mid-High, Nil": "oklch(0.15 0 0)", "High, Nil": "oklch(0.15 0 0)", 
-    "High-Peak, Nil": "oklch(0.15 0 0)", "Peak, Nil": "oklch(0.15 0 0)",
-    "Baseline, Error": "oklch(37.67 0.15 29.23)", "Bottom, Error": "oklch(37.67 0.15 29.23)", "Bottom-Low, Error": "oklch(37.67 0.15 29.23)", "Low, Error": "oklch(37.67 0.15 29.23)", 
-    "Low-Mid, Error": "oklch(37.67 0.15 29.23)", "Mid, Error": "oklch(37.67 0.15 29.23)", "Mid-High, Error": "oklch(37.67 0.15 29.23)", "High, Error": "oklch(37.67 0.15 29.23)", 
-    "High-Peak, Error": "oklch(37.67 0.15 29.23)", "Peak, Error": "oklch(37.67 0.15 29.23)",
-    "Baseline, Toohard": "oklch(0 0 0)", "Bottom, Toohard": "oklch(0 0 0)", "Bottom-Low, Toohard": "oklch(0 0 0)", "Low, Toohard": "oklch(0 0 0)", 
-    "Low-Mid, Toohard": "oklch(0 0 0)", "Mid, Toohard": "oklch(0 0 0)", "Mid-High, Toohard": "oklch(0 0 0)", "High, Toohard": "oklch(0 0 0)", 
-    "High-Peak, Toohard": "oklch(0 0 0)", "Peak, Toohard": "oklch(0 0 0)"
+    Insane: "oklch(0.5 0.24 265)", Extreme: "oklch(0.75 0.15 215)", Terrifying: "oklch(0.85 0.12 200)", Catastrophic: "oklch(0.97 0 0)", Horrific: "oklch(0.6 0.2 300)",
+    Unreal: "oklch(0.35 0.15 300)", Nil: "oklch(0.15 0 0)", Error: "oklch(37.67 0.15 29.23)", Toohard: "oklch(0 0 0)"
   };
-  const diffChip = d => d ? `<span class="chip" style="--c:${DIFF[d.toLowerCase()] || "var(--ink-3)"}"><span class="dot"></span>${esc(d)}</span>` : "";
+  const SUBTIERS = ["Baseline","Bottom","Bottom-Low","Low","Low-Mid","Mid","Mid-High","High","High-Peak","Peak"];
+
+function parseDiff(d) {
+  const s = String(d || "").trim();
+  if (!s) return null;
+  const parts = s.split(",").map(x => x.trim()).filter(Boolean);
+  let base = parts[parts.length - 1];          // 오른쪽 = 일반 난이도
+  let sub  = parts.slice(0, -1).join(", ");    // 왼쪽 = 세부 난이도
+  if (!DIFF[base.toLowerCase()]) {             // 쉼표를 빠뜨린 경우("Mid-High Unreal")도 처리
+    const words = s.split(/[\s,]+/);
+    const i = words.map(w => w.toLowerCase()).findLastIndex(w => DIFF[w]);
+    if (i >= 0) { base = words[i]; sub = words.slice(0, i).join(" "); }
+  }
+  return { sub, base, color: DIFF[base.toLowerCase()] || "var(--ink-3)" };
+}
+const diffChip = d => {
+  const p = parseDiff(d);
+  if (!p) return "";
+  return `<span class="chip" style="--c:${p.color}"><span class="dot"></span>${p.sub ? `<span class="sub">${esc(p.sub)},</span>` : ""}${esc(p.base)}</span>`;
+};
 
   function ytId(u) {
     if (!u) return "";
