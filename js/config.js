@@ -33,25 +33,25 @@ window.KTTL_CONFIG = {
     record: {
       action: "https://docs.google.com/forms/d/e/1FAIpQLSda9XPoQuRQ99bf9TfBBd02atLiXyX7I4PIWqjUY9trIjit5w/viewform", // 예: https://docs.google.com/forms/d/e/1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4/formResponse
       fields: {
-        player: "entry.1000001",
-        list: "entry.1000002",
-        tower: "entry.1000003",
-        video: "entry.1000004",
-        raw: "entry.1000005",
-        note: "entry.1000006"
+        player: "entry.9021063",
+        list: "entry.372644296",
+        tower: "entry.932672589",
+        video: "entry.93628443",
+        raw: "entry.1003787229",
+        note: "entry.448111630"
       }
     },
     map: {
       action: "https://docs.google.com/forms/d/e/1FAIpQLSccJuKbQJWWH5Sj1aA1NcDQM9LmpKIikFCARlLV0HlBx0iClA/viewform",
       fields: {
-        name: "entry.2000001",
-        game: "entry.2000002",
-        creators: "entry.2000003",
-        verifier: "entry.2000004",
-        difficulty: "entry.2000005",
-        video: "entry.2000006",
-        place: "entry.2000007",
-        note: "entry.2000008"
+        name: "entry.796922281",
+        game: "entry.923555865",
+        creators: "entry.1842655939",
+        verifier: "entry.233484933",
+        difficulty: "entry.1118792823",
+        video: "entry.721474325",
+        place: "entry.687705323",
+        note: "entry.889661039"
       }
     }
   }
