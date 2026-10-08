@@ -31,7 +31,7 @@ window.KTTL_CONFIG = {
      action 이 비어있으면 데모 모드(실제 전송 없음)로 동작합니다. */
   FORMS: {
     record: {
-      action: "https://docs.google.com/forms/d/e/1FAIpQLSda9XPoQuRQ99bf9TfBBd02atLiXyX7I4PIWqjUY9trIjit5w/viewform", // 예: https://docs.google.com/forms/d/e/1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4/formResponse
+      action: "https://docs.google.com/forms/d/e/1FAIpQLSda9XPoQuRQ99bf9TfBBd02atLiXyX7I4PIWqjUY9trIjit5w/formResponse", // 예: https://docs.google.com/forms/d/e/1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4/formResponse
       fields: {
         player: "entry.9021063",
         list: "entry.372644296",
@@ -42,7 +42,7 @@ window.KTTL_CONFIG = {
       }
     },
     map: {
-      action: "https://docs.google.com/forms/d/e/1FAIpQLSccJuKbQJWWH5Sj1aA1NcDQM9LmpKIikFCARlLV0HlBx0iClA/viewform",
+      action: "https://docs.google.com/forms/d/e/1FAIpQLSccJuKbQJWWH5Sj1aA1NcDQM9LmpKIikFCARlLV0HlBx0iClA/formResponse",
       fields: {
         name: "entry.796922281",
         game: "entry.923555865",
