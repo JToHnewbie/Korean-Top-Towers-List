@@ -15,6 +15,7 @@
 
   /* JToH 계열 난이도 색 */
   const DIFF = {
+    Insane: "oklch(0.5 0.24 265)",
     "Baseline, Insane": "oklch(0.5 0.24 265)", "Bottom, Insane": "oklch(0.5 0.24 265)", "Bottom-Low, Insane": "oklch(0.5 0.24 265)", "Low, Insane": "oklch(0.5 0.24 265)",
     "Low-Mid, Insane": "oklch(0.5 0.24 265)", "Mid, Insane": "oklch(0.5 0.24 265)", "Mid-High, Insane": "oklch(0.5 0.24 265)", "High, Insane": "oklch(0.5 0.24 265)",
     "High-Peak, Insane": "oklch(0.5 0.24 265)", "Peak, Insane": "oklch(0.5 0.24 265)",
