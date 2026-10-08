@@ -73,9 +73,9 @@ window.KTTL_I18N = {
     guidelines: {
       title: "규칙 및 가이드라인",
       sections: [
-        ["기록 제출 요건", ["처음부터 끝까지 끊김 없이 촬영된 영상이어야 합니다.", "클리어 순간과 게임 내 승리 화면이 명확히 보여야 합니다.", "고난도 타워(상위 30위)는 원본 영상(Raw footage) 제출이 필요할 수 있습니다.", "FPS 언락커 등 허용된 도구 외의 외부 프로그램 사용은 금지됩니다."]],
-        ["타워 배치 기준", ["메인 리스트는 검증된 타워만 등재됩니다.", "배치 위치는 스태프 투표 및 클리어한 플레이어들의 의견을 종합해 결정합니다.", "새 타워가 배치되면 해당 위치부터 아래 순위가 한 칸씩 밀려납니다."]],
-        ["리스트 구분", ["Main: 검증된 정규 타워", "Misc: 특수 기믹·비정규 형식의 타워", "Tower Pack: 여러 타워 묶음", "Unverified: 아직 첫 클리어가 없는 타워", "Pending: 배치 검토 중인 제출작"]],
+        ["기록 제출 요건", ["SCLP, TTC 등 이미 타 사이트에 등재된 경우 영상 대신 디스코드 메시지 링크를 첨부할 수 있습니다.", "만약 그렇지 않다면, 끊김없는 풀영상이 필요합니다.", "트러스 픽스와 같은 기능은 모두 허용이지만, FPS 언락커를 제외한 외부 프로그램 사용은 금지입니다."]],
+        ["타워 배치 기준", ["메인 리스트와 기타 리스트는 검증된 타워만 등재됩니다.", "배치 위치는 클리어한 유저들의 의견, 관리자들의 의견, SCLP 리스트 등을 종합하여 지정합니다.", "새 타워가 배치되면 해당 위치부터 아래 순위가 한 칸씩 밀려납니다."]],
+        ["리스트 구분", ["Main: 검증된 정규 타워", "Misc: 낮은 퀄리티, 변형, 내수용 타워", "Tower Pack: 여러 타워 묶음", "Unverified: 아직 첫 클리어가 없는 타워", "Pending: 배치 검토 중인 제출작"]],
         ["포인트", ["메인 리스트 클리어 및 검증 시 순위에 따른 포인트가 부여됩니다.", "순위가 바뀌면 포인트도 자동으로 다시 계산됩니다."]]
       ]
     },
@@ -155,9 +155,9 @@ window.KTTL_I18N = {
     guidelines: {
       title: "Rules & Guidelines",
       sections: [
-        ["Record requirements", ["Footage must be continuous from start to finish.", "The completion and in-game win screen must be clearly visible.", "Top 30 towers may require raw footage.", "No external programs other than permitted tools (e.g. FPS unlockers)."]],
-        ["Placement", ["Only verified towers are placed on the Main List.", "Placement is decided by staff vote with input from players who beat the tower.", "When a tower is placed, every tower below it moves down one spot."]],
-        ["Lists", ["Main: verified standard towers", "Misc: gimmick / non-standard towers", "Tower Pack: bundles of towers", "Unverified: towers without a first clear", "Pending: submissions under review"]],
+        ["Record requirements", ["If the content is already listed on other sites (such as SCLP or TTC), you may attach a link to a Discord message instead of a video.", "If that is not the case, an uninterrupted full video is required.", "Features such as \"Truss Fix\" are permitted, but the use of external programs with the exception of FPS unlockers is prohibited."]],
+        ["Placement", ["Only verified towers are placed on the Main List and Misc List.", "Placement locations are determined by synthesizing feedback from players who have cleared the content, input from administrators, and the SCLP list.", "When a tower is placed, every tower below it moves down one spot."]],
+        ["Lists", ["Main: verified standard towers", "Misc: Low quality, deformed, Korean-market tower", "Tower Pack: bundles of towers", "Unverified: towers without a first clear", "Pending: submissions under review"]],
         ["Points", ["Main List completions and verifications award points based on position.", "Points are recalculated automatically whenever positions change."]]
       ]
     },
