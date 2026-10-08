@@ -15,10 +15,33 @@
 
   /* JToH 계열 난이도 색 */
   const DIFF = {
-    easy: "oklch(0.75 0.2 145)", medium: "oklch(0.88 0.17 100)", hard: "oklch(0.75 0.17 60)", difficult: "oklch(0.62 0.22 28)",
-    challenging: "oklch(0.45 0.17 25)", intense: "oklch(0.3 0.02 260)", remorseless: "oklch(0.65 0.25 330)", insane: "oklch(0.5 0.24 265)",
-    extreme: "oklch(0.75 0.15 215)", terrifying: "oklch(0.85 0.12 200)", catastrophic: "oklch(0.97 0 0)", horrific: "oklch(0.6 0.2 300)",
-    unreal: "oklch(0.35 0.15 300)", nil: "oklch(0.15 0 0)"
+    "Baseline, Insane": "oklch(0.5 0.24 265)", "Bottom, Insane": "oklch(0.5 0.24 265)", "Bottom-Low, Insane": "oklch(0.5 0.24 265)", "Low, Insane": "oklch(0.5 0.24 265)",
+    "Low-Mid, Insane": "oklch(0.5 0.24 265)", "Mid, Insane": "oklch(0.5 0.24 265)", "Mid-High, Insane": "oklch(0.5 0.24 265)", "High, Insane": "oklch(0.5 0.24 265)",
+    "High-Peak, Insane": "oklch(0.5 0.24 265)", "Peak, Insane": "oklch(0.5 0.24 265)",
+    "Baseline, Extreme": "oklch(0.75 0.15 215)", "Bottom, Extreme": "oklch(0.75 0.15 215)", "Bottom-Low, Extreme": "oklch(0.75 0.15 215)", "Low, Extreme": "oklch(0.75 0.15 215)",
+    "Low-Mid, Extreme": "oklch(0.75 0.15 215)", "Mid, Extreme": "oklch(0.75 0.15 215)", "Mid-High, Extreme": "oklch(0.75 0.15 215)", "High, Extreme": "oklch(0.75 0.15 215)",
+    "High-Peak, Extreme": "oklch(0.75 0.15 215)", "Peak, Extreme": "oklch(0.75 0.15 215)",
+    "Baseline, Terrifying": "oklch(0.85 0.12 200)", "Bottom, Terrifying": "oklch(0.85 0.12 200)", "Bottom-Low, Terrifying": "oklch(0.85 0.12 200)", "Low, Terrifying": "oklch(0.85 0.12 200)",
+    "Low-Mid, Terrifying": "oklch(0.85 0.12 200)", "Mid, Terrifying": "oklch(0.85 0.12 200)", "Mid-High, Terrifying": "oklch(0.85 0.12 200)", "High, Terrifying": "oklch(0.85 0.12 200)",
+    "High-Peak, Terrifying": "oklch(0.85 0.12 200)", "Peak, Terrifying": "oklch(0.85 0.12 200)",
+    "Baseline, Catastrophic": "oklch(0.97 0 0)", "Bottom, Catastrophic": "oklch(0.97 0 0)", "Bottom-Low, Catastrophic": "oklch(0.97 0 0)", "Low, Catastrophic": "oklch(0.97 0 0)", 
+    "Low-Mid, Catastrophic": "oklch(0.97 0 0)", "Mid, Catastrophic": "oklch(0.97 0 0)", "Mid-High, Catastrophic": "oklch(0.97 0 0)", "High, Catastrophic": "oklch(0.97 0 0)", 
+    "High-Peak, Catastrophic": "oklch(0.97 0 0)", "Peak, Catastrophic": "oklch(0.97 0 0)",
+    "Baseline, Horrific": "oklch(0.6 0.2 300)", "Bottom, Horrific": "oklch(0.6 0.2 300)", "Bottom-Low, Horrific": "oklch(0.6 0.2 300)", "Low, Horrific": "oklch(0.6 0.2 300)", 
+    "Low-Mid, Horrific": "oklch(0.6 0.2 300)", "Mid, Horrific": "oklch(0.6 0.2 300)", "Mid-High, Horrific": "oklch(0.6 0.2 300)", "High, Horrific": "oklch(0.6 0.2 300)", 
+    "High-Peak, Horrific": "oklch(0.6 0.2 300)", "Peak, Horrific": "oklch(0.6 0.2 300)",
+    "Baseline, Unreal": "oklch(0.35 0.15 300)", "Bottom, Unreal": "oklch(0.35 0.15 300)", "Bottom-Low, Unreal": "oklch(0.35 0.15 300)", "Low, Unreal": "oklch(0.35 0.15 300)", 
+    "Low-Mid, Unreal": "oklch(0.35 0.15 300)", "Mid, Unreal": "oklch(0.35 0.15 300)", "Mid-High, Unreal": "oklch(0.35 0.15 300)", "High, Unreal": "oklch(0.35 0.15 300)", 
+    "High-Peak, Unreal": "oklch(0.35 0.15 300)", "Peak, Unreal": "oklch(0.35 0.15 300)",
+    "Baseline, Nil": "oklch(0.15 0 0)", "Bottom, Nil": "oklch(0.15 0 0)", "Bottom-Low, Nil": "oklch(0.15 0 0)", "Low, Nil": "oklch(0.15 0 0)", 
+    "Low-Mid, Nil": "oklch(0.15 0 0)", "Mid, Nil": "oklch(0.15 0 0)", "Mid-High, Nil": "oklch(0.15 0 0)", "High, Nil": "oklch(0.15 0 0)", 
+    "High-Peak, Nil": "oklch(0.15 0 0)", "Peak, Nil": "oklch(0.15 0 0)",
+    "Baseline, Error": "oklch(37.67 0.15 29.23)", "Bottom, Error": "oklch(37.67 0.15 29.23)", "Bottom-Low, Error": "oklch(37.67 0.15 29.23)", "Low, Error": "oklch(37.67 0.15 29.23)", 
+    "Low-Mid, Error": "oklch(37.67 0.15 29.23)", "Mid, Error": "oklch(37.67 0.15 29.23)", "Mid-High, Error": "oklch(37.67 0.15 29.23)", "High, Error": "oklch(37.67 0.15 29.23)", 
+    "High-Peak, Error": "oklch(37.67 0.15 29.23)", "Peak, Error": "oklch(37.67 0.15 29.23)",
+    "Baseline, Toohard": "oklch(0 0 0)", "Bottom, Toohard": "oklch(0 0 0)", "Bottom-Low, Toohard": "oklch(0 0 0)", "Low, Toohard": "oklch(0 0 0)", 
+    "Low-Mid, Toohard": "oklch(0 0 0)", "Mid, Toohard": "oklch(0 0 0)", "Mid-High, Toohard": "oklch(0 0 0)", "High, Toohard": "oklch(0 0 0)", 
+    "High-Peak, Toohard": "oklch(0 0 0)", "Peak, Toohard": "oklch(0 0 0)"
   };
   const diffChip = d => d ? `<span class="chip" style="--c:${DIFF[d.toLowerCase()] || "var(--ink-3)"}"><span class="dot"></span>${esc(d)}</span>` : "";
 
