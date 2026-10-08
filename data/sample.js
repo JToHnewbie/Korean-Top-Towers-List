@@ -46,9 +46,7 @@ steeple-of-ashen-crowns,Steeple of Ashen Crowns,Ascent,Catastrophic,Dalbit,,,,
 tower-of-silent-storms,Tower of Silent Storms,JToH,Terrifying,Bora,,,,`,
 
 pending: `id,name,game,difficulty,creators,verifier,video,place_id,note
-tower-of-lost-signals,Tower of Lost Signals,JToH,Terrifying,Yeonwoo,Daeun,,,2026-10-01 제출
-tower-of-coral-depths,Tower of Coral Depths,Mystic Towers,Extreme,Glacien,Sora_x,,,2026-10-03 제출
-citadel-of-amber-gates,Citadel of Amber Gates,EToH Archive,Terrifying,Ono,Jiho.k,,,2026-10-05 제출`,
+tower-of-example-name,Tower of Example Name,EToH,Insane,N/A,N/A,,,20XX-XX-XX 제출`,
 
 records: `list,tower_id,player,video,date,note
 main,tower-of-frozen-abyss,Minho_99,,2026-09-02,
