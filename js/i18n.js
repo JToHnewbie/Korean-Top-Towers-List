@@ -5,7 +5,7 @@ window.KTTL_I18N = {
     listName: { main: "Main List", misc: "Miscellaneous List", packs: "Tower Pack List", unverified: "Unverified List", pending: "Pending List" },
     listDesc: {
       main: "검증이 완료된 가장 어려운 타워들의 공식 순위입니다. 1위가 가장 어려우며, 새 타워가 배치되면 그 아래 순위는 한 칸씩 밀려납니다.",
-      misc: "메인 리스트 기준에는 맞지 않지만 주목할 만한 타워들(특수 기믹, 길이, 비공식 게임 등)의 순위입니다.",
+      misc: "메인 리스트에 들어갈 정도의 퀄리티가 아니거나, 국내 유저들을 타겟팅해 제작된 타워들의 순위입니다.",
       packs: "여러 타워를 묶은 타워 팩의 전체 난이도 순위입니다.",
       unverified: "아직 검증(첫 클리어)이 되지 않은 타워들의 예상 난이도 순위입니다.",
       pending: "제출되어 스태프가 배치 위치를 검토 중인 타워들입니다. 순서는 제출 순입니다."
@@ -87,7 +87,7 @@ window.KTTL_I18N = {
     listName: { main: "Main List", misc: "Miscellaneous List", packs: "Tower Pack List", unverified: "Unverified List", pending: "Pending List" },
     listDesc: {
       main: "The official ranking of the hardest verified towers. #1 is the hardest; when a new tower is placed, everything below it moves down one spot.",
-      misc: "Notable towers that don't fit the Main List criteria — gimmicks, length, unofficial games and more.",
+      misc: "This is a ranking of towers that either do not meet the quality standards for the main list or were created for a Korean.",
       packs: "Overall difficulty ranking of tower packs that bundle multiple towers.",
       unverified: "Estimated ranking of towers that have not been verified (beaten) yet.",
       pending: "Submitted towers awaiting placement review by staff. Ordered by submission."
