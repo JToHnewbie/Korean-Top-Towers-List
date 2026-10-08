@@ -15,8 +15,8 @@
 
   /* JToH 계열 난이도 색 */
   const DIFF = {
-    Insane: "oklch(0.5 0.24 265)", Extreme: "oklch(0.75 0.15 215)", Terrifying: "oklch(0.85 0.12 200)", Catastrophic: "oklch(0.97 0 0)", Horrific: "oklch(0.6 0.2 300)",
-    Unreal: "oklch(0.35 0.15 300)", Nil: "oklch(0.15 0 0)", Error: "oklch(37.67 0.15 29.23)", Toohard: "oklch(0 0 0)"
+    "Insane": "oklch(0.5 0.24 265)", "Extreme": "oklch(0.75 0.15 215)", "Terrifying": "oklch(0.85 0.12 200)", "Catastrophic": "oklch(0.97 0 0)", "Horrific": "oklch(0.6 0.2 300)",
+    "Unreal": "oklch(0.35 0.15 300)", "Nil": "oklch(0.15 0 0)", "Error": "oklch(37.67 0.15 29.23)", "Toohard": "oklch(0 0 0)"
   };
   const SUBTIERS = ["Baseline","Bottom","Bottom-Low","Low","Low-Mid","Mid","Mid-High","High","High-Peak","Peak"];
 
