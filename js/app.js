@@ -18,26 +18,31 @@
     insane: "oklch(0.452 0.313 264.1)", extreme: "oklch(0.6166 0.2005 253.93)", terrifying: "oklch(0.9054 0.1546 194.77)", catastrophic: "oklch(0.97 0 0)",
     horrific: "oklch(0.7089 0.1008 274.47)", unreal: "oklch(0.4186 0.2323 300.29)", nil: "oklch(0.5787 0.0121 286.02)", error: "oklch(0.3767 0.15 29.23)", toohard: "oklch(0 0 0)"
   };
-  const SUBTIERS = ["Baseline","Bottom","Bottom-Low","Low","Low-Mid","Mid","Mid-High","High","High-Peak","Peak"];
+  /* 세부 난이도 목록 (Submit 폼 선택지) */
+  const SUBTIERS = ["Baseline", "Bottom", "Bottom-Low", "Low", "Low-Mid", "Mid", "Mid-High", "High", "High-Peak", "Peak"];
 
-function parseDiff(d) {
-  const s = String(d || "").trim();
-  if (!s) return null;
-  const parts = s.split(",").map(x => x.trim()).filter(Boolean);
-  let base = parts[parts.length - 1];          // 오른쪽 = 일반 난이도
-  let sub  = parts.slice(0, -1).join(", ");    // 왼쪽 = 세부 난이도
-  if (!DIFF[base.toLowerCase()]) {             // 쉼표를 빠뜨린 경우("Mid-High Unreal")도 처리
-    const words = s.split(/[\s,]+/);
-    const i = words.map(w => w.toLowerCase()).findLastIndex(w => DIFF[w]);
-    if (i >= 0) { base = words[i]; sub = words.slice(0, i).join(" "); }
+  /* "Mid-High, Unreal" → { sub: "Mid-High", base: "Unreal", color }
+     - 쉼표 오른쪽(마지막 부분)을 일반 난이도로 보고 색을 결정
+     - 쉼표 없이 "Insane" 만 적어도 동작
+     - 쉼표를 빠뜨린 "Mid-High Unreal" 같은 입력도 알려진 난이도 단어를 찾아서 처리 */
+  function parseDiff(d) {
+    const s = String(d || "").trim();
+    if (!s) return null;
+    const parts = s.split(",").map(x => x.trim()).filter(Boolean);
+    let base = parts.length ? parts[parts.length - 1] : s;
+    let sub = parts.slice(0, -1).join(", ");
+    if (!DIFF[base.toLowerCase()]) {
+      const words = s.split(/[\s,]+/);
+      const i = words.map(w => w.toLowerCase()).findLastIndex(w => DIFF[w]);
+      if (i >= 0) { base = words[i]; sub = words.slice(0, i).join(" "); }
+    }
+    return { sub, base, color: DIFF[base.toLowerCase()] || "var(--ink-3)" };
   }
-  return { sub, base, color: DIFF[base.toLowerCase()] || "var(--ink-3)" };
-}
-const diffChip = d => {
-  const p = parseDiff(d);
-  if (!p) return "";
-  return `<span class="chip" style="--c:${p.color}"><span class="dot"></span>${p.sub ? `<span class="sub">${esc(p.sub)},</span>` : ""}${esc(p.base)}</span>`;
-};
+  const diffChip = d => {
+    const p = parseDiff(d);
+    if (!p) return "";
+    return `<span class="chip" style="--c:${p.color}" title="${esc(d)}"><span class="dot"></span>${p.sub ? `<span class="sub">${esc(p.sub)},</span>` : ""}${esc(p.base)}</span>`;
+  };
 
   function ytId(u) {
     if (!u) return "";
@@ -132,6 +137,43 @@ const diffChip = d => {
     </aside>`;
   }
 
+  /* ---------------- progress (부분 기록) ----------------
+     progress 칸은 자유 형식. 인식 가능한 형식은 진행 막대로 표시하고, 그 외는 글자 그대로 표시.
+       "87%"            → 0 ~ 87%
+       "40-100%", "40%~100%" → 40 ~ 100% (중간부터 끝까지 런)
+       "7F", "Floor 7", "7층" → 1층 ~ 7층 (타워 floors 값이 있으면 막대 표시)
+       "3F-9F", "3~9층", "Floor 3-9" → 3층 ~ 9층
+       그 외 ("Section 4 skip", "Full run w/ checkpoints") → 텍스트 */
+  function parseProgress(raw, floors) {
+    const s = String(raw || "").trim();
+    if (!s) return null;
+    const n = s.replace(/[~–—]|\bto\b/gi, "-");
+    const isPct = /%/.test(n);
+    const isFloor = /\d\s*(f\b|층)|floors?\s*\d/i.test(n);
+    const nums = (n.match(/\d+(?:\.\d+)?/g) || []).map(Number);
+    const range = /\d\s*(?:%|f|층)?\s*-\s*(?:floors?\s*)?\d/i.test(n) && nums.length >= 2;
+    if (isPct && nums.length) return range ? mk(nums[0] / 100, nums[1] / 100) : mk(0, nums[0] / 100);
+    if (isFloor && nums.length) return range ? floorsMk(nums[0], nums[1]) : floorsMk(1, nums[0]);
+    return { text: s, from: null, to: null };
+    function mk(a, b) { a = Math.max(0, Math.min(1, a)); b = Math.max(a, Math.min(1, b)); return { text: s, from: a, to: b }; }
+    function floorsMk(a, b) {
+      if (b < a) [a, b] = [b, a];
+      return floors ? { ...mk((a - 1) / floors, b / floors), floorsOnly: false } : { text: s, from: null, to: null, span: b - a + 1, end: b };
+    }
+  }
+  const progScore = p => !p ? [-1, -1] : p.from != null ? [p.to - p.from, p.to] : p.span ? [p.span / 1000, p.end / 1000] : [-0.5, -0.5];
+  function progBar(p) {
+    if (!p) return "—";
+    const bar = p.from != null ? `<span class="prog"><span style="left:${(p.from * 100).toFixed(1)}%;width:${((p.to - p.from) * 100).toFixed(1)}%"></span></span>` : "";
+    return `<span class="prog-w">${bar}<span class="prog-t">${esc(p.text)}</span></span>`;
+  }
+  const bestRecord = t => {
+    const rs = t.records.filter(r => r.progress);
+    if (!rs.length) return null;
+    return rs.map(r => ({ r, p: parseProgress(r.progress, t.floors) }))
+      .sort((a, b) => { const x = progScore(a.p), y = progScore(b.p); return y[0] - x[0] || y[1] - x[1]; })[0];
+  };
+
   /* ---------------- list page ---------------- */
   function entry(t) {
     const credit = `${esc(T.by)} <b>${esc(t.creators.join(", ") || "—")}</b>` +
@@ -140,6 +182,7 @@ const diffChip = d => {
       ? `<div class="pts">${t.points.toFixed(2)}</div><div class="pts-l">${esc(T.points)}</div><div class="rec">${esc(T.recordsN(t.records.length))}</div>`
       : t.list === "packs" ? `<div class="pts">${t.towers.length}</div><div class="pts-l">Towers</div>`
       : t.list === "pending" ? `<div class="pts-l">${esc(T.unplaced)}</div>`
+      : t.list === "unverified" ? (b => b ? `<div class="pts">${esc(b.p.text)}</div><div class="pts-l">${esc(T.best)} · ${esc(b.r.player)}</div><div class="rec">${esc(T.recordsN(t.records.length))}</div>` : `<div class="rec">${esc(T.recordsN(t.records.length))}</div>`)(bestRecord(t))
       : `<div class="rec">${esc(T.recordsN(t.records.length))}</div>`;
     return `<a class="card entry ${t.pos <= 3 ? "top" : ""}" href="${towerURL(t)}" data-q="${esc((t.name + " " + t.creators.join(" ") + " " + t.verifier + " " + t.game).toLowerCase())}">
       ${thumb(t)}
@@ -206,7 +249,14 @@ const diffChip = d => {
       return m ? `<a href="${towerURL(m)}"><span class="pos">${posLabel(m)}</span><span>${esc(m.name)}</span><span style="margin-left:auto">${diffChip(m.difficulty)}</span></a>` : `<a><span class="pos">—</span><span>${esc(tid)}</span></a>`;
     }).join("")}</div></div>` : "";
 
-    const recs = t.records.slice().sort((a, b) => a.date.localeCompare(b.date));
+    const hasProg = key === "unverified" || t.records.some(r => r.progress);
+    const recs = t.records.map(r => ({ ...r, p: parseProgress(r.progress, t.floors) }));
+    if (hasProg) recs.sort((a, b) => { const x = progScore(a.p), y = progScore(b.p); return y[0] - x[0] || y[1] - x[1] || a.date.localeCompare(b.date); });
+    else recs.sort((a, b) => a.date.localeCompare(b.date));
+    if (key === "unverified") {
+      const b = bestRecord(t);
+      facts.push([T.best, b ? `${esc(b.p.text)} <span style="color:var(--ink-3);font-weight:500">· ${esc(b.r.player)}</span>` : "—", "mono", true], [T.floors, t.floors || "—", "mono"], [T.records, t.records.length, "mono"]);
+    }
     $("#app").innerHTML = `
       <main>
         <div class="crumbs"><a href="${PAGES[key]}">${esc(T.listName[key])}</a><span>/</span><span>${esc(t.name)}</span></div>
@@ -215,9 +265,9 @@ const diffChip = d => {
         <div class="card facts">${facts.map(f => `<div><div class="k">${esc(f[0])}</div><div class="v ${f[2] || ""}">${f[3] ? f[1] : esc(f[1])}</div></div>`).join("")}</div>
         ${t.note ? `<div class="note">${esc(t.note)}</div>` : ""}
         ${packTowers}
-        ${key !== "pending" ? `<div class="sec"><div class="sec-h"><h2>${esc(T.records)}</h2><span>${recs.length}</span></div>
-          <div class="card">${recs.length ? `<table class="t"><thead><tr><th style="width:56px">#</th><th>${esc(T.player)}</th><th>${esc(T.date)}</th><th>${esc(T.video)}</th></tr></thead><tbody>
-          ${recs.map((r, i) => `<tr><td class="mono">${i + 1}</td><td><a class="lnk" href="stats.html?player=${encodeURIComponent(r.player)}">${esc(r.player)}</a>${r.note ? ` <span style="color:var(--ink-3);font-size:12.5px">· ${esc(r.note)}</span>` : ""}</td><td class="mono">${esc(r.date || "—")}</td><td>${r.video ? `<a class="lnk" href="${esc(r.video)}" target="_blank" rel="noopener">${esc(T.open)} ↗</a>` : "—"}</td></tr>`).join("")}
+        ${key !== "pending" ? `<div class="sec"><div class="sec-h"><h2>${esc(key === "unverified" ? T.progressRecords : T.records)}</h2><span>${recs.length}</span></div>
+          <div class="card">${recs.length ? `<table class="t"><thead><tr><th style="width:56px">#</th><th>${esc(T.player)}</th>${hasProg ? `<th>${esc(T.progress)}</th>` : ""}<th>${esc(T.date)}</th><th>${esc(T.video)}</th></tr></thead><tbody>
+          ${recs.map((r, i) => `<tr><td class="mono">${i + 1}</td><td><a class="lnk" href="stats.html?player=${encodeURIComponent(r.player)}">${esc(r.player)}</a>${r.note ? ` <span style="color:var(--ink-3);font-size:12.5px">· ${esc(r.note)}</span>` : ""}</td>${hasProg ? `<td>${progBar(r.p)}</td>` : ""}<td class="mono">${esc(r.date || "—")}</td><td>${r.video ? `<a class="lnk" href="${esc(r.video)}" target="_blank" rel="noopener">${esc(T.open)} ↗</a>` : "—"}</td></tr>`).join("")}
           </tbody></table>` : `<div class="empty">${esc(T.noRecords)}</div>`}</div></div>` : ""}
         <div class="sec"><div class="sec-h"><h2>${esc(T.history)}</h2><span>${t.history.length}</span></div>
           <div class="card">${t.history.length ? `<table class="t"><thead><tr><th style="width:130px">${esc(T.date)}</th><th>${esc(T.position)}</th><th>${esc(T.note)}</th></tr></thead><tbody>
@@ -285,13 +335,14 @@ const diffChip = d => {
       ${fld("player", S.player, true)}
       <div class="row2">${fld("list", S.list, true, `<select name="list">${lists.map(l => `<option value="${l}">${esc(T.listName[l])}</option>`).join("")}</select>`)}
       ${fld("tower", S.tower, true, `<select name="tower" required>${towerOpts("main")}</select>`)}</div>
+      ${fld("progress", S.progress, false, `<input name="progress" placeholder="${esc(S.progressPh)}">`)}
       ${fld("video", S.video, true, `<input name="video" type="url" placeholder="https://youtu.be/…" required>`)}
       ${fld("raw", S.raw, false, `<input name="raw" type="url" placeholder="https://…">`)}
       ${fld("note", S.note, false, `<textarea name="note"></textarea>`)}` : `
       <p style="color:var(--ink-2)">${esc(S.mapDesc)}</p>
       <div class="row2">${fld("name", S.name, true)}${fld("game", S.game, true, `<input name="game" list="games" required><datalist id="games"><option>JToH</option><option>Mystic Towers</option><option>Ascent</option><option>EToH Archive</option></datalist>`)}</div>
       <div class="row2">${fld("creators", S.creators, true)}${fld("verifier", S.verifier, false)}</div>
-      <div class="row2">${fld("difficulty", S.difficulty, true, `<select name="difficulty">${diffs.map(d => `<option>${d}</option>`).join("")}</select>`)}${fld("place", S.place, true)}</div>
+      <div class="row2">${fld("difficulty", S.difficulty, true, `<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><select name="diff_sub">${SUBTIERS.map(d => `<option ${d === "Mid" ? "selected" : ""}>${d}</option>`).join("")}</select><select name="diff_base">${diffs.map(d => `<option>${d}</option>`).join("")}</select></div>`)}${fld("place", S.place, true)}</div>
       ${fld("video", S.video, false, `<input name="video" type="url" placeholder="https://youtu.be/…">`)}
       ${fld("note", S.note, false, `<textarea name="note"></textarea>`)}`;
     $("#app").innerHTML = `
@@ -307,6 +358,7 @@ const diffChip = d => {
     $("#sf").onsubmit = async e => {
       e.preventDefault();
       const f = e.target, fd = new FormData(f), msg = $("#smsg");
+      if (fd.has("diff_base")) { fd.set("difficulty", `${fd.get("diff_sub")}, ${fd.get("diff_base")}`); fd.delete("diff_sub"); fd.delete("diff_base"); }
       let bad = false;
       f.querySelectorAll("[required]").forEach(i => { const w = i.closest(".fld"); const ok = i.value.trim() !== ""; w.classList.toggle("err", !ok); bad ||= !ok; });
       if (bad) { msg.innerHTML = `<div class="msg bad">${esc(S.required)}</div>`; return; }
