@@ -8,7 +8,7 @@ window.KTTL_I18N = {
       misc: "메인 리스트에 들어갈 정도의 퀄리티가 아니거나, 국내 유저들을 타겟팅해 제작된 타워들의 순위입니다.",
       packs: "여러 타워를 묶은 타워 팩의 전체 난이도 순위입니다.",
       unverified: "아직 검증(첫 클리어)이 되지 않은 타워들의 예상 난이도 순위입니다.",
-      pending: "제출되어 스태프가 배치 위치를 검토 중인 타워들입니다."
+      pending: "제출되어 스태프가 배치 위치를 검토 중인 타워들입니다. 순서는 제출 순입니다."
     },
     search: "타워·플레이어 검색",
     filter: "이 리스트에서 찾기",
@@ -17,6 +17,10 @@ window.KTTL_I18N = {
     verifiedBy: "검증",
     notVerified: "미검증",
     records: "기록",
+    progress: "진행도",
+    progressRecords: "진행 기록",
+    best: "최고 기록",
+    floors: "총 층수",
     recordsN: n => `기록 ${n}개`,
     towersN: n => `타워 ${n}개`,
     points: "포인트",
@@ -65,7 +69,7 @@ window.KTTL_I18N = {
       title: "제출", record: "기록 제출", map: "타워 제출",
       recordDesc: "리스트에 있는 타워의 클리어 기록을 제출합니다. 스태프 검토 후 반영됩니다.",
       mapDesc: "새 타워를 리스트에 올리기 위해 제출합니다. 검토 후 Pending List에 추가됩니다.",
-      player: "플레이어 이름 (Roblox)", list: "리스트", tower: "타워", video: "클리어 영상 링크", raw: "원본 영상 링크 (선택)", note: "추가 메모 (선택)",
+      player: "플레이어 이름 (Roblox)", progress: "진행도 (부분 기록일 때만)", progressPh: "예: 87% · 40-100% · 7F · 3F-9F · 자유 입력", list: "리스트", tower: "타워", video: "클리어 영상 링크", raw: "원본 영상 링크 (선택)", note: "추가 메모 (선택)",
       name: "타워 이름", game: "게임", creators: "제작자 (쉼표로 구분)", verifier: "검증자 (없으면 비워두세요)", difficulty: "예상 난이도", place: "게임 링크 또는 Place ID",
       send: "제출하기", sending: "전송 중…", ok: "제출되었습니다. 스태프 검토 후 반영됩니다.", demo: "데모 모드: 폼이 아직 연결되지 않아 실제로 전송되지 않았습니다.", required: "필수 항목을 입력하세요.",
       rulesHint: "제출 전에 규칙 페이지를 확인하세요."
@@ -90,7 +94,7 @@ window.KTTL_I18N = {
       misc: "This is a ranking of towers that either do not meet the quality standards for the main list or were created for a Korean.",
       packs: "Overall difficulty ranking of tower packs that bundle multiple towers.",
       unverified: "Estimated ranking of towers that have not been verified (beaten) yet.",
-      pending: "Submitted towers awaiting placement review by staff."
+      pending: "Submitted towers awaiting placement review by staff. Ordered by submission."
     },
     search: "Search towers & players",
     filter: "Filter this list",
@@ -99,6 +103,10 @@ window.KTTL_I18N = {
     verifiedBy: "verified by",
     notVerified: "Unverified",
     records: "Records",
+    progress: "Progress",
+    progressRecords: "Progress records",
+    best: "Best",
+    floors: "Floors",
     recordsN: n => `${n} record${n === 1 ? "" : "s"}`,
     towersN: n => `${n} tower${n === 1 ? "" : "s"}`,
     points: "Points",
@@ -147,7 +155,7 @@ window.KTTL_I18N = {
       title: "Submit", record: "Submit record", map: "Submit tower",
       recordDesc: "Submit a completion of a tower on the lists. It will appear after staff review.",
       mapDesc: "Submit a new tower for listing. Accepted submissions go to the Pending List.",
-      player: "Player name (Roblox)", list: "List", tower: "Tower", video: "Completion video link", raw: "Raw footage link (optional)", note: "Notes (optional)",
+      player: "Player name (Roblox)", progress: "Progress (partial runs only)", progressPh: "e.g. 87% · 40-100% · 7F · 3F-9F · any text", list: "List", tower: "Tower", video: "Completion video link", raw: "Raw footage link (optional)", note: "Notes (optional)",
       name: "Tower name", game: "Game", creators: "Creators (comma separated)", verifier: "Verifier (leave empty if none)", difficulty: "Estimated difficulty", place: "Game link or Place ID",
       send: "Submit", sending: "Sending…", ok: "Submitted. It will appear after staff review.", demo: "Demo mode: the form is not connected yet, nothing was sent.", required: "Please fill in the required fields.",
       rulesHint: "Please read the guidelines before submitting."
