@@ -69,7 +69,7 @@ window.KTTL_I18N = {
       title: "제출", record: "기록 제출", map: "타워 제출",
       recordDesc: "리스트에 있는 타워의 클리어 기록을 제출합니다. 스태프 검토 후 반영됩니다.",
       mapDesc: "새 타워를 리스트에 올리기 위해 제출합니다. 검토 후 Pending List에 추가됩니다.",
-      player: "플레이어 이름 (Roblox)", progress: "진행도 (미검증 타워 한정)", progressPh: "예: 87% · 40-100% · 7F · 3F-9F · 자유 입력", list: "리스트", tower: "타워", video: "클리어 영상 링크", raw: "원본 영상 링크 (선택)", note: "추가 메모 (선택)",
+      player: "플레이어 이름 (Roblox)", progress: "진행도 (미검증 타워 한정)", progressPh: "예: 87% · 40-100% · 7F · 3F-9F · 자유 입력", list: "리스트", tower: "타워", video: "클리어 영상 링크, 또는 다른 인증 수단", raw: "원본 영상 링크 (선택)", note: "추가 메모 (선택)",
       name: "타워 이름", game: "게임", creators: "제작자 (쉼표로 구분)", verifier: "검증자 (없으면 비워두세요)", difficulty: "예상 난이도", place: "게임 링크 또는 Place ID",
       send: "제출하기", sending: "전송 중…", ok: "제출되었습니다. 스태프 검토 후 반영됩니다.", demo: "데모 모드: 폼이 아직 연결되지 않아 실제로 전송되지 않았습니다.", required: "필수 항목을 입력하세요.",
       rulesHint: "제출 전에 규칙 페이지를 확인하세요."
@@ -155,7 +155,7 @@ window.KTTL_I18N = {
       title: "Submit", record: "Submit record", map: "Submit tower",
       recordDesc: "Submit a completion of a tower on the lists. It will appear after staff review.",
       mapDesc: "Submit a new tower for listing. Accepted submissions go to the Pending List.",
-      player: "Player name (Roblox)", progress: "Progress (Only Unverified Towers)", progressPh: "e.g. 87% · 40-100% · 7F · 3F-9F · any text", list: "List", tower: "Tower", video: "Completion video link", raw: "Raw footage link (optional)", note: "Notes (optional)",
+      player: "Player name (Roblox)", progress: "Progress (Only Unverified Towers)", progressPh: "e.g. 87% · 40-100% · 7F · 3F-9F · any text", list: "List", tower: "Tower", video: "Completion video link, or other means of verification", raw: "Raw footage link (optional)", note: "Notes (optional)",
       name: "Tower name", game: "Game", creators: "Creators (comma separated)", verifier: "Verifier (leave empty if none)", difficulty: "Estimated difficulty", place: "Game link or Place ID",
       send: "Submit", sending: "Sending…", ok: "Submitted. It will appear after staff review.", demo: "Demo mode: the form is not connected yet, nothing was sent.", required: "Please fill in the required fields.",
       rulesHint: "Please read the guidelines before submitting."
