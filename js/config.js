@@ -4,7 +4,7 @@
    ========================================================= */
 window.KTTL_CONFIG = {
   /* Google 스프레드시트 ID
-     https://docs.google.com/spreadsheets/d/1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4/edit
+     https://docs.google.com/spreadsheets/d/【여기 부분】/edit
      비워두면 data/ 폴더의 샘플 CSV를 사용합니다. */
   SHEET_ID: "1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4",
 
@@ -31,13 +31,14 @@ window.KTTL_CONFIG = {
      action 이 비어있으면 데모 모드(실제 전송 없음)로 동작합니다. */
   FORMS: {
     record: {
-      action: "https://docs.google.com/forms/d/e/1FAIpQLSda9XPoQuRQ99bf9TfBBd02atLiXyX7I4PIWqjUY9trIjit5w/formResponse", // 예: https://docs.google.com/forms/d/e/1t1Sx5QbIsyfQcx8cEsQjxIzBnyJn9QoYlo8w9nylSo4/formResponse
+      action: "https://docs.google.com/forms/d/e/1FAIpQLSda9XPoQuRQ99bf9TfBBd02atLiXyX7I4PIWqjUY9trIjit5w/formResponse", // 예: https://docs.google.com/forms/d/e/XXXX/formResponse
       fields: {
         player: "entry.9021063",
         list: "entry.372644296",
         tower: "entry.932672589",
         video: "entry.93628443",
         raw: "entry.1003787229",
+        progress: "entry.700453986",
         note: "entry.448111630"
       }
     },
