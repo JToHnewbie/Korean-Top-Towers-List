@@ -66,7 +66,16 @@
     <tr><td>tower_id</td><td>타워의 id</td></tr>
     <tr><td>player</td><td>플레이어 이름 — 플레이어 랭킹에 자동 집계</td></tr>
     <tr><td>video · date · note</td><td>영상 링크, 날짜(YYYY-MM-DD), 비고</td></tr>
+    <tr><td>progress</td><td>부분 기록(주로 Unverified). 비워두면 일반 클리어 기록입니다. 자유 형식이며 아래 형식은 진행 막대로 표시됩니다.</td></tr>
   </tbody></table></div>
+  <div class="card" style="margin-top:12px"><table class="t"><thead><tr><th>progress 입력 예</th><th>표시</th></tr></thead><tbody>
+    <tr><td>87%</td><td>처음부터 87%까지</td></tr>
+    <tr><td>40-100% · 40%~100%</td><td>40%에서 100%까지 (중간부터 시작한 런)</td></tr>
+    <tr><td>7F · 7층 · Floor 7</td><td>1층부터 7층까지</td></tr>
+    <tr><td>3F-9F · 3~9층 · Floor 3-9</td><td>3층에서 9층까지</td></tr>
+    <tr><td>그 외 아무 문장</td><td>글자 그대로 표시 (예: "Section 3 전체 클리어")</td></tr>
+  </tbody></table></div>
+  <p>층 단위 기록을 막대로 보여주려면 Unverified 탭에 <code>floors</code> 열(총 층수)을 추가하세요. 기록은 진행 범위가 큰 순서로 정렬되고, 가장 좋은 기록이 리스트에 "최고 기록"으로 표시됩니다.</p>
   <div class="card" style="margin-top:12px"><table class="t"><thead><tr><th>Changelog 열</th><th>설명</th></tr></thead><tbody>
     <tr><td>date · list · tower_id</td><td>변동 날짜, 리스트, 타워 id</td></tr>
     <tr><td>change</td><td>placed / raised / lowered / pushed / moved / removed / verified</td></tr>
