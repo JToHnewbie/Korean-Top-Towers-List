@@ -66,6 +66,7 @@
           video: r.video || "",
           place: r.place_id || r.place || "",
           note: r.note || "",
+          floors: parseInt(r.floors, 10) || 0,
           towers: (r.towers || "").split(/[;\n]/).map(x => slug(x.trim())).filter(Boolean),
           records: [],
           history: []
@@ -77,7 +78,7 @@
     });
 
     db.records = parseCSV(raw.records || "").filter(r => r.player && r.tower_id).map(r => ({
-      list: (r.list || "main").toLowerCase(), tower: slug(r.tower_id), player: r.player, video: r.video || "", date: r.date || "", note: r.note || ""
+      list: (r.list || "main").toLowerCase(), tower: slug(r.tower_id), player: r.player, video: r.video || "", date: r.date || "", note: r.note || "", progress: r.progress || ""
     }));
     db.records.forEach(r => { const t = db.byId[r.list + ":" + r.tower]; if (t) t.records.push(r); });
 
